@@ -10,6 +10,8 @@ One MCP server. Add it to Claude, Cursor or any agent in 30 seconds. It screens 
 
 [Live demo](https://agents.petroi.fr) · [3D city](https://city.petroi.fr) · [Explorer](https://explorer.petroi.fr) · [Full reference ↓](#quickstart)
 
+**Want a ready agent to watch it work?** Clone [**secure-agent-starter**](https://github.com/walidb212/secure-agent-starter) and run one command: an AI agent gets lured by a scam page and the guard blocks the payment before the wallet signs.
+
 </div>
 
 ---
