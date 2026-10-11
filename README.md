@@ -54,6 +54,7 @@ Prompt injection, tool poisoning, fake approvals, overcharged x402 calls, lookal
 - **Seven layers of signals** over sanitized input, a degressive trust score, clear thresholds, a human-approval queue and a full audit trail.
 - **Optional LLM judgement** (Anthropic or Bedrock) that can only *raise* risk, never lower it.
 - **Optional connected mode** — a shared incident registry and an on-chain proof of every decision, through the hosted Sentinel API.
+- **Optional KYB (connected mode)** — the hosted re-screen verifies the beneficiary against the French state company registry (API Recherche d'entreprises, data.gouv.fr / DINUM): an active, matching company attaches its SIREN as official proof; a struck-off, unknown or name-mismatched payee becomes a risk signal and an escalation. Third-party, logged and replayable (a DORA requirement), never self-declared; if the registry is down, no payment is released on its account.
 
 ## Try it in 30 seconds (no key, nothing to configure)
 
@@ -116,7 +117,7 @@ We are deliberately honest about what this does and does not prove:
 
 ## What is open, what is hosted
 
-This repository is the **open core (MIT)**: the sanitizer, the seven layers of signals, the degressive score and thresholds, the local human queue and audit trail, the HTTP client of the hosted API, the synthetic example config and the optional LLM prompt. The hosted side (the API server and its re-screening, the on-chain writer and contracts, the shared registry's data, issuer onboarding, compliance reporting, keys and infrastructure) is not in it.
+This repository is the **open core (MIT)**: the sanitizer, the seven layers of signals, the degressive score and thresholds, the local human queue and audit trail, the HTTP client of the hosted API, the synthetic example config and the optional LLM prompt. The hosted side (the API server and its re-screening, the KYB check against the French state company registry (data.gouv.fr), the on-chain writer and contracts, the shared registry's data, issuer onboarding, compliance reporting, keys and infrastructure) is not in it.
 
 ---
 
