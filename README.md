@@ -60,13 +60,13 @@ You need [`uv`](https://docs.astral.sh/uv/) (`curl -LsSf https://astral.sh/uv/in
 **Add it to Claude Code:**
 
 ```bash
-claude mcp add sentinel -- uvx --from "git+https://github.com/wb-eugenia/sentinel-guard" sentinel-guard
+claude mcp add sentinel -- uvx --from "git+https://github.com/walidb212/sentinel-guard" sentinel-guard
 ```
 
 Then just ask Claude to pay for something sketchy and watch it get blocked. Or screen a payment straight from the terminal:
 
 ```bash
-uvx --from "git+https://github.com/wb-eugenia/sentinel-guard" sentinel-guard screen - <<'JSON'
+uvx --from "git+https://github.com/walidb212/sentinel-guard" sentinel-guard screen - <<'JSON'
 { "issuer": "0xA11ce00000000000000000000000000000000002",
   "recipient": "0xBADc0ffee0000000000000000000000000000000",
   "amount": 129, "currency": "USDC",
@@ -86,7 +86,7 @@ Local mode protects one agent. **Connected mode** links your guard to a shared t
 2. Paste one line into your agent:
 
    ```bash
-   claude mcp add sentinel -s user -e SENTINEL_API_KEY=your-key -- uvx --from "git+https://github.com/wb-eugenia/sentinel-guard" sentinel-guard
+   claude mcp add sentinel -s user -e SENTINEL_API_KEY=your-key -- uvx --from "git+https://github.com/walidb212/sentinel-guard" sentinel-guard
    ```
 
 3. Allowed payments now leave a visa on-chain, blocks flag the address for the whole network, and each decision shows up as a car on the [3D city](https://city.petroi.fr) with its transaction on the [explorer](https://explorer.petroi.fr).
@@ -198,7 +198,7 @@ Replace `uvx sentinel-guard` with one of:
 
 ```bash
 uvx --from /absolute/path/to/sentinel-guard sentinel-guard
-uvx --from "git+https://github.com/wb-eugenia/sentinel-guard" sentinel-guard
+uvx --from "git+https://github.com/walidb212/sentinel-guard" sentinel-guard
 ```
 
 In JSON or YAML configs that becomes `"args": ["--from", "<path or git URL>", "sentinel-guard"]`. `python -m sentinel_guard`
