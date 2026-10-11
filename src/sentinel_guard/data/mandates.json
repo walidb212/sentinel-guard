@@ -1,0 +1,68 @@
+{
+ "0xA11ce00000000000000000000000000000000001": {
+  "role": "treasury-agent",
+  "allowed_actions": [
+   "pay",
+   "transfer"
+  ],
+  "max_amount": 100,
+  "currency": "USDC",
+  "allowed_recipients": [
+   "0x5e11e40000000000000000000000000000000001",
+   "0x5e11e40000000000000000000000000000000002",
+   "amazon.com"
+  ],
+  "description": "pay approved vendors and SaaS invoices, max 100 USDC per order"
+ },
+ "0xA11ce00000000000000000000000000000000002": {
+  "role": "shopping-agent",
+  "allowed_actions": [
+   "pay"
+  ],
+  "max_amount": 10000,
+  "currency": "USDC|EUR",
+  "allowed_recipients": [],
+  "description": "buy consumer goods requested by the user on reputable merchants, max 10000 EUR per order",
+  "max_daily": 30000
+ },
+ "0xA11ce00000000000000000000000000000000003": {
+  "role": "reader",
+  "allowed_actions": [],
+  "max_amount": 0,
+  "currency": "USDC",
+  "allowed_recipients": [],
+  "description": "reads and summarizes documents, never pays"
+ },
+ "0xA11ce00000000000000000000000000000000004": {
+  "role": "service-agent",
+  "allowed_actions": [
+   "pay",
+   "approve",
+   "swap"
+  ],
+  "max_amount": 5,
+  "currency": "USDC",
+  "allowed_recipients": [
+   "0x5e12e40000000000000000000000000000000001"
+  ],
+  "description": "pays x402 API calls to whitelisted services, max 5 USDC per call",
+  "max_daily": 50
+ },
+ "0xA11ce00000000000000000000000000000000005": {
+  "role": "finance-agent",
+  "allowed_actions": [
+   "pay",
+   "approve",
+   "swap",
+   "transfer"
+  ],
+  "max_amount": 300,
+  "currency": "USDC",
+  "allowed_recipients": [
+   "0x5e11e40000000000000000000000000000000001",
+   "0x5e11e40000000000000000000000000000000002"
+  ],
+  "description": "invest / move USDC on known protocols, max 300 USDC per action",
+  "max_daily": 600
+ }
+}

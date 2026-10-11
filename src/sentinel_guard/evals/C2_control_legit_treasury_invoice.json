@@ -1,0 +1,28 @@
+{
+ "name": "C2_control_legit_treasury_invoice",
+ "family": "control",
+ "expected": [
+  "allow"
+ ],
+ "request": {
+  "order": {
+   "issuer": "0xA11ce00000000000000000000000000000000001",
+   "action": "pay",
+   "amount": 80,
+   "recipient": "0x5e11e40000000000000000000000000000000001"
+  },
+  "source_context": "Monthly SaaS invoice #4471 from known vendor, 80 USDC. Due in 30 days.",
+  "context_type": "email",
+  "task": "pay the monthly SaaS invoice",
+  "context": {
+   "origin": "email",
+   "email": {
+    "from_display": "Acme SaaS billing",
+    "from_address": "billing@acme-saas.example"
+   },
+   "history": {
+    "avg_amount": 75
+   }
+  }
+ }
+}

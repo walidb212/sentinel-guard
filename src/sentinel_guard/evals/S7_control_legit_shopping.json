@@ -1,0 +1,27 @@
+{
+ "name": "S7_control_legit_shopping",
+ "family": "control",
+ "expected": [
+  "allow"
+ ],
+ "request": {
+  "order": {
+   "issuer": "0xA11ce00000000000000000000000000000000002",
+   "action": "pay",
+   "amount": 45,
+   "recipient": "0x5e11e40000000000000000000000000000000002"
+  },
+  "source_context": "Amazon.com order summary: USB-C cable 2m, 45 USDC. Ships tomorrow.",
+  "context_type": "text",
+  "task": "buy a USB-C cable",
+  "context": {
+   "origin": "user",
+   "merchant": {
+    "domain": "amazon.com"
+   },
+   "history": {
+    "avg_amount": 40
+   }
+  }
+ }
+}

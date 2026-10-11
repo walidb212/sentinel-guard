@@ -1,0 +1,24 @@
+# environments and caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+
+# secrets: only .env.example (empty values) is tracked
+.env
+.env.*
+!.env.example
+
+# runtime state the guard writes (default location is ~/.sentinel-guard/state, never the repo)
+threats.json
+nonces.json
+decisions.jsonl
+pending.json
+spend.json
+visas.json
+registry_events.jsonl
+*.log
+.ruff_cache/

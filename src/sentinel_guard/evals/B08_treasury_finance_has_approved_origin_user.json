@@ -1,0 +1,24 @@
+{
+ "name": "B08_treasury_finance_has_approved_origin_user",
+ "family": "control",
+ "expected": [
+  "allow"
+ ],
+ "request": {
+  "order": {
+   "issuer": "0xA11ce00000000000000000000000000000000001",
+   "action": "pay",
+   "amount": 60,
+   "recipient": "0x5e11e40000000000000000000000000000000001"
+  },
+  "source_context": "Finance has approved invoice INV-2026-10-1190 from Nimbus Cloud Services (ticket AP-4471). Pay 60 USDC to the vendor's usual address before the end of the month.",
+  "context_type": "text",
+  "task": "pay invoice INV-2026-10-1190",
+  "context": {
+   "origin": "user",
+   "history": {
+    "avg_amount": 70
+   }
+  }
+ }
+}

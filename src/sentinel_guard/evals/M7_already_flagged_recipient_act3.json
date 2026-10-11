@@ -1,0 +1,22 @@
+{
+ "name": "M7_already_flagged_recipient_act3",
+ "family": "registry",
+ "expected": [
+  "block"
+ ],
+ "request": {
+  "order": {
+   "issuer": "0xA11ce00000000000000000000000000000000001",
+   "action": "pay",
+   "amount": 10,
+   "recipient": "0xBAD0000000000000000000000000000000000BAD"
+  },
+  "source_context": "Invoice #9: 10 USDC consulting fee.",
+  "context_type": "text",
+  "task": "pay invoice #9",
+  "context": {
+   "origin": "user",
+   "_after": "M1_low_priv_agent_to_treasury"
+  }
+ }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AgenticPaymentVerdict",
+  "description": "Shared contract between the detection brain (WS1) and the policy-check Lambda (WS2). The detection layer returns exactly this object for every payment order an agent is about to execute.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["instruction_id", "issuer", "action", "amount", "verdict", "risk_score", "reasons", "owasp"],
+  "properties": {
+    "instruction_id": { "type": "string", "description": "keccak256 hash of the raw payment order (also the on-chain key)" },
+    "issuer": { "type": "string", "description": "0x address or id of the agent/entity that issued the order" },
+    "action": { "type": "string", "enum": ["pay", "approve", "transfer", "swap"] },
+    "amount": { "type": "number" },
+    "currency": { "type": "string", "default": "USDC" },
+    "recipient": { "type": "string" },
+    "verdict": { "type": "string", "enum": ["allow", "needs_approval", "block"] },
+    "risk_score": { "type": "number", "minimum": 0, "maximum": 1, "description": "calibrated, never shown without cited evidence" },
+    "reasons": { "type": "array", "items": { "type": "string" } },
+    "owasp": { "type": "array", "items": { "type": "string", "enum": ["ASI03", "ASI07"] } },
+    "authority_check": {
+      "type": "object",
+      "properties": {
+        "authorized": { "type": "boolean" },
+        "within_limit": { "type": "boolean" },
+        "source": { "type": "string", "default": "onchain" }
+      }
+    },
+    "poison_check": {
+      "type": "object",
+      "properties": {
+        "is_poisoned": { "type": "boolean" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "evidence": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "onchain_flagged": { "type": "boolean" },
+    "timestamp": { "type": "string" }
+  },
+  "examples": [
+    {
+      "instruction_id": "0x9af2...c1",
+      "issuer": "0xA11ce000000000000000000000000000000000Ab",
+      "action": "pay",
+      "amount": 5000,
+      "currency": "USDC",
+      "recipient": "0xBADc0ffee0000000000000000000000000000000",
+      "verdict": "block",
+      "risk_score": 0.94,
+      "reasons": [
+        "issuer not in on-chain authority registry for action=pay",
+        "instruction contains an injected directive overriding the mandate",
+        "recipient flagged on-chain (severity 3)"
+      ],
+      "owasp": ["ASI03", "ASI07"],
+      "authority_check": { "authorized": false, "within_limit": false, "source": "onchain" },
+      "poison_check": { "is_poisoned": true, "confidence": 0.92, "evidence": ["hidden 'ignore prior limits' clause in source doc"] },
+      "onchain_flagged": true,
+      "timestamp": "2026-10-11T14:03:00Z"
+    }
+  ]
+}

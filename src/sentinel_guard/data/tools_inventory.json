@@ -1,0 +1,14 @@
+{
+  "search_products": {
+    "hash": null
+  },
+  "get_quote": {
+    "hash": null
+  },
+  "pay_x402": {
+    "hash": null
+  },
+  "convert_currency": {
+    "hash": "184a450a6707aff1d23294367019b50cf3329c37f085c839d8879f4b6fb02148"
+  }
+}

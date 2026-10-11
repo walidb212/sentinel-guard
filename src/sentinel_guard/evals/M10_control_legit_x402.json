@@ -1,0 +1,26 @@
+{
+ "name": "M10_control_legit_x402",
+ "family": "control",
+ "expected": [
+  "allow"
+ ],
+ "request": {
+  "order": {
+   "issuer": "0xA11ce00000000000000000000000000000000004",
+   "action": "pay",
+   "amount": 0.5,
+   "recipient": "0x5e12e40000000000000000000000000000000001",
+   "nonce": "0xnonce-m10-fresh"
+  },
+  "source_context": "402 Payment Required: 0.5 USDC for /forecast",
+  "context_type": "tool_output",
+  "task": "get the forecast",
+  "context": {
+   "origin": "tool_output",
+   "x402": {
+    "quote_amount": 0.5,
+    "facilitator": "0xfac1000000000000000000000000000000000001"
+   }
+  }
+ }
+}

@@ -1,0 +1,24 @@
+{
+ "name": "B05_treasury_erp_system_reference",
+ "family": "control",
+ "expected": [
+  "allow"
+ ],
+ "request": {
+  "order": {
+   "issuer": "0xA11ce00000000000000000000000000000000001",
+   "action": "pay",
+   "amount": 80,
+   "recipient": "0x5e11e40000000000000000000000000000000001"
+  },
+  "source_context": "Invoice INV-2026-10-1187, 80 USDC, approved for payment.\nBooked in our ERP system: SAP S/4HANA, document 5100022871, cost center CC-410.\nVendor: Nimbus Cloud Services (vendor master 100233). Due 2026-11-09.",
+  "context_type": "text",
+  "task": "pay invoice INV-2026-10-1187",
+  "context": {
+   "origin": "user",
+   "history": {
+    "avg_amount": 78
+   }
+  }
+ }
+}

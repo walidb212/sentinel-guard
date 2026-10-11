@@ -1,0 +1,6 @@
+{
+  "0xbad0000000000000000000000000000000000bad": {"age_days": 0, "tx_count": 0, "verified_contract": false},
+  "0xdead00000000000000000000000000000000beef": {"age_days": 1, "tx_count": 2, "verified_contract": false},
+  "0x5e11e40000000000000000000000000000000001": {"age_days": 800, "tx_count": 5400, "verified_contract": true},
+  "0x5e12e40000000000000000000000000000000001": {"age_days": 300, "tx_count": 12000, "verified_contract": true}
+}

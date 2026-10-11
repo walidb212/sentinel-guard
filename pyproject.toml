@@ -1,0 +1,47 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sentinel-guard"
+version = "0.1.0"
+description = "A verification guard in front of every AI agent payment: prompt-injection, authority-chain and counterparty checks, served over MCP."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.11"
+authors = [{ name = "Sentinel contributors" }]
+keywords = ["mcp", "ai-agents", "payments", "security", "prompt-injection", "x402", "owasp"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+]
+dependencies = [
+    "mcp>=2.3,<3",
+    "beautifulsoup4>=4.12",
+    "pycryptodome>=3.20",
+    "starlette>=1.0.1",
+]
+
+[project.optional-dependencies]
+anthropic = ["anthropic"]
+bedrock = ["boto3>=1.34"]
+dev = ["pytest", "jsonschema"]
+
+[project.scripts]
+sentinel-guard = "sentinel_guard.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sentinel_guard"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/sentinel_guard", "tests", "README.md", "LICENSE", "CHANGELOG.md", ".env.example", "pyproject.toml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: long-running tests (the seeded fuzzers); deselect with -m 'not slow'"]
